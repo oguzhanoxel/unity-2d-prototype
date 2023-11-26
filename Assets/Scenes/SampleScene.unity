@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 45218299}
   m_Layer: 0
   m_Name: platformPack_tilesheet@2_0
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -436,8 +436,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c612b60d2ef6ede46a1ba84b6e111821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 519420028}
-  Speed: 10
+  _jumpForce: 5
+  _speed: 3
 --- !u!1 &448413767
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,7 +451,7 @@ GameObject:
   - component: {fileID: 448413770}
   m_Layer: 0
   m_Name: platformPack_tilesheet@2_0 (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -673,7 +673,7 @@ GameObject:
   - component: {fileID: 614218429}
   m_Layer: 0
   m_Name: platformPack_tilesheet@2_12
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -803,7 +803,7 @@ GameObject:
   - component: {fileID: 996469994}
   m_Layer: 0
   m_Name: platformPack_tilesheet@2_0 (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1091,7 +1091,7 @@ GameObject:
   - component: {fileID: 1195197010}
   m_Layer: 0
   m_Name: platformPack_tilesheet@2_0 (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1221,7 +1221,7 @@ GameObject:
   - component: {fileID: 1854303127}
   m_Layer: 0
   m_Name: platformPack_tilesheet@2_12 (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
