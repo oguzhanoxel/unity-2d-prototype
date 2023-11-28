@@ -7,7 +7,10 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _jumpForce = 10.0f;
     [SerializeField] private float _speed = 1.5f;
-    
+    [SerializeField] private GameObject _camera;
+    [SerializeField] private GameObject _startPoint;
+
+    private float cameraPosZ = -10.0f;
     private bool _jump;
     private bool _grounded;
     private Rigidbody2D _playerRigidbody;
@@ -21,6 +24,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        transform.position = _startPoint.transform.position;
         _playerRigidbody = GetComponent<Rigidbody2D>();
         _playerSpriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -63,6 +67,11 @@ public class PlayerController : MonoBehaviour
                 _playerSpriteRenderer.flipX = false;
             }
         }
+    }
+
+    private void LateUpdate()
+    {
+        _camera.transform.position = new Vector3(transform.position.x, transform.position.y, cameraPosZ);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
