@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private int _score = 0;
+    [SerializeField] private TextMeshProUGUI _scoreText;
 
     public void LoadScene(int sceneBuildIndex)
     {
@@ -19,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseScore(int score)
     {
-        _score += score;
-        Debug.Log(_score);
+        Score.TotalScore += score;
+        _scoreText.text = $"Score: {Score.TotalScore}";
     }
 }
