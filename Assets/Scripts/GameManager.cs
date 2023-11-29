@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    private int _score = 0;
+
     public void LoadScene(int sceneBuildIndex)
     {
         SceneManager.LoadScene(sceneBuildIndex);
@@ -13,5 +15,11 @@ public class GameManager : MonoBehaviour
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void IncreaseScore(int score)
+    {
+        _score += score;
+        Debug.Log(_score);
     }
 }

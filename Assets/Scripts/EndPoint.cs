@@ -5,10 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class EndPoint : MonoBehaviour
 {
-    [SerializeField] private int _sceneIndex;
+    private Scene _scene;
+
+    private void Awake()
+    {
+        _scene = SceneManager.GetActiveScene();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene(_sceneIndex);
+        SceneManager.LoadScene(_scene.buildIndex + 1);
     }
 }

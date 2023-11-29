@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _speed = 1.5f;
     [SerializeField] private GameObject _camera;
     [SerializeField] private GameObject _startPoint;
+    [SerializeField] private AudioClip _collectibleAudio;
 
     private float cameraPosZ = -10.0f;
     private bool _jump;
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _playerRigidbody;
     private SpriteRenderer _playerSpriteRenderer;
     private Animator _playerAnim;
+    private AudioSource _playerAudioSource;
 
     private void Awake()
     {
@@ -27,6 +29,7 @@ public class PlayerController : MonoBehaviour
         transform.position = _startPoint.transform.position;
         _playerRigidbody = GetComponent<Rigidbody2D>();
         _playerSpriteRenderer = GetComponent<SpriteRenderer>();
+        _playerAudioSource = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -80,5 +83,10 @@ public class PlayerController : MonoBehaviour
         {
             _grounded = true;
         }
+    }
+
+    public void PlayCollectibleAudio()
+    {
+        _playerAudioSource.PlayOneShot(_collectibleAudio);
     }
 }
