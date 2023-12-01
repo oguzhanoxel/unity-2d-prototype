@@ -20,7 +20,18 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseScore(int score)
     {
-        Score.TotalScore += score;
-        _scoreText.text = $"Score: {Score.TotalScore}";
+        StaticVariables.TotalScore += score;
+        _scoreText.text = $"Score: {StaticVariables.TotalScore}";
+    }
+
+    public void Restart()
+    {
+        StaticVariables.Lives = 3;
+        LoadScene(StaticVariables.LastSceneIndex);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
