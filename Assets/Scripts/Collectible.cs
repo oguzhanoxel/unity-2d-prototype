@@ -15,10 +15,13 @@ public class Collectible : MonoBehaviour
         _playerController = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        _playerController.PlayCollectibleAudio();
-        _gameManager.IncreaseScore(_score);
-        Destroy(gameObject);
+        if (other.gameObject.CompareTag("Player"))
+        {
+            _playerController.PlayCollectibleAudio();
+            _gameManager.IncreaseScore(_score);
+            Destroy(gameObject);
+        }
     }
 }

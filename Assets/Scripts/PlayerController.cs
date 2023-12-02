@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer _playerSpriteRenderer;
     private Animator _playerAnim;
     private AudioSource _playerAudioSource;
+    private Scene _scene;
+    private HealthBar _healthBar;
 
     private void Awake()
     {
@@ -26,10 +29,14 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        _scene = SceneManager.GetActiveScene();
         transform.position = _startPoint.transform.position;
+
         _playerRigidbody = GetComponent<Rigidbody2D>();
         _playerSpriteRenderer = GetComponent<SpriteRenderer>();
         _playerAudioSource = GetComponent<AudioSource>();
+
+        _healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
     }
 
     private void FixedUpdate()
@@ -82,6 +89,18 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             _grounded = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            _healthBar.DecreaseHealth();
+            SceneManager.LoadScene(_scene.buildIndex);
+        } else if (collision.gameObject.CompareTag("Finish"))
+        {
+            SceneManager.LoadScene(_scene.buildIndex + 1);
         }
     }
 
