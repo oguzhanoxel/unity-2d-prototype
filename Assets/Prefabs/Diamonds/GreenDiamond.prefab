@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7763565050617906125}
   - component: {fileID: 3561889769110804650}
   - component: {fileID: 1586248324457725140}
+  - component: {fileID: 5721075279579278675}
   m_Layer: 0
   m_Name: GreenDiamond
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,3 +154,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _score: 3
+--- !u!114 &5721075279579278675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4785567290074121763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa33e5e723358ea4aa1daaea7d2e3002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class StaticVariables
 {
-    public static int TotalScore;
+    public static int TotalScore = 0;
     public static int Lives = 3;
     public static int LastSceneIndex;
 }

@@ -188,7 +188,8 @@ MonoBehaviour:
   _speed: 3
   _camera: {fileID: 0}
   _startPoint: {fileID: 0}
-  _collectibleAudio: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
+  _collectibleAudio: {fileID: 8300000, guid: 7bd6b897eb5ca4b7d88a205c4a51640c, type: 3}
+  _jumpAudio: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
 --- !u!82 &6352984470006456517
 AudioSource:
   m_ObjectHideFlags: 0

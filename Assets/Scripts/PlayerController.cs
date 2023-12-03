@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,17 +8,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _speed = 1.5f;
     [SerializeField] private GameObject _camera;
     [SerializeField] private GameObject _startPoint;
+
     [SerializeField] private AudioClip _collectibleAudio;
+    [SerializeField] private AudioClip _jumpAudio;
 
     private float cameraPosZ = -10.0f;
     private bool _jump;
     private bool _grounded;
+
     private Rigidbody2D _playerRigidbody;
     private SpriteRenderer _playerSpriteRenderer;
     private Animator _playerAnim;
     private AudioSource _playerAudioSource;
-    private Scene _scene;
-    private HealthBar _healthBar;
+    private GameManager _gameManager;
+
 
     private void Awake()
     {
@@ -29,14 +30,13 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        _scene = SceneManager.GetActiveScene();
         transform.position = _startPoint.transform.position;
 
         _playerRigidbody = GetComponent<Rigidbody2D>();
         _playerSpriteRenderer = GetComponent<SpriteRenderer>();
         _playerAudioSource = GetComponent<AudioSource>();
 
-        _healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void FixedUpdate()
@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
             {
                 _jump = true;
+                _playerAudioSource.PlayOneShot(_jumpAudio);
             }
 
             float horizontalInput = Input.GetAxis("Horizontal");
@@ -71,7 +72,7 @@ public class PlayerController : MonoBehaviour
             if (horizontalInput < 0)
             {
                 _playerSpriteRenderer.flipX = true;
-            } 
+            }
             else if (horizontalInput > 0) 
             {
                 _playerSpriteRenderer.flipX = false;
@@ -96,11 +97,10 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            _healthBar.DecreaseHealth();
-            SceneManager.LoadScene(_scene.buildIndex);
+            _gameManager.DecreaseHealth();
         } else if (collision.gameObject.CompareTag("Finish"))
         {
-            SceneManager.LoadScene(_scene.buildIndex + 1);
+            _gameManager.LoadNextScene();
         }
     }
 

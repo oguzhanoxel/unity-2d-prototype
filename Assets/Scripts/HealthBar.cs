@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
@@ -30,12 +29,5 @@ public class HealthBar : MonoBehaviour
                 _hearts[i].enabled = false;
             }
         }
-    }
-
-    public void DecreaseHealth()
-    {
-        if (StaticVariables.Lives > 0) {
-            StaticVariables.Lives--;
-        } 
     }
 }
